@@ -15,10 +15,13 @@ const topicsSlice = createSlice({
         quizIds: []
       }
     },
-
+      addQuizIdToTopic: (state, action) => {
+        const { topicId, quizId } = action.payload;
+        state.topics[topicId].quizIds.push(quizId);
+      }
   }
 })
 
-export const { addTopic } = topicsSlice.actions;
+export const { addTopic, addQuizIdToTopic } = topicsSlice.actions;
 export const selectTopics = (state) => state.topics.topics
 export default topicsSlice.reducer
